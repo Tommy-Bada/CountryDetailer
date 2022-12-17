@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Flag Fetcher</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+</head>
+<body>
+    <header>
+        <h1>Where in the world?</h1>
+        <div id="color-mode" class="light-mode">
+            <img id="color-icon" src="images/moon-6686.svg" alt="toggle" width="20px" />
+            <p id="color-mode-text">Dark Mode</p>
+        </div>
+    </header>
+    <section>
+        <form>
+        <input type="text" name="country-name" id="search-bar" placeholder="Search any country..."/>
+        </form>
+        <div id="filter-btn">
+           <p>Filter by region</p>
+           <div><img id="dd-icon" src="images/thin-chevron-arrow-bottom-icon.svg" width="10px"/></div>
+        </div>
+    </section>
+    <aside>
+        <ul class="closed">
+            <li class="region-btn" id="africa">Africa</li>
+            <li class="region-btn" id="america">America</li>
+            <li class="region-btn" id="asia">Asia</li>
+            <li class="region-btn" id="europe">Europe</li>
+            <li class="region-btn" id="oceana">Oceania</li>
+            <li class="region-btn" id="antarctic">Antarctic</li>
+        </ul>
+    </aside>
+    <main>
+
+    </main>
+    <script src="library.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
