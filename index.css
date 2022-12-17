@@ -230,6 +230,9 @@ h2{
     section{
         display: block;
     }
+    #color-mode{
+        display:block;
+    }
     #color-mode>p{
         display:none;
     }
@@ -245,7 +248,7 @@ h2{
         margin-bottom: 3rem;
     }
     input{
-        width: 100%;
+        width: 90%;
     }
 
     /* Page */
