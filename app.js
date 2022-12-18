@@ -203,6 +203,10 @@ document.querySelector("#color-mode").addEventListener("click", function(){
         document.querySelector("#filter-btn").style.background = "hsl(209, 23%, 22%)"
         document.querySelector("#filter-btn").style.color = "white"
         document.querySelector("ul").style.background = "hsl(209, 23%, 22%)"
+        Array.from(document.querySelectorAll("button")).forEach(function(item){
+            item.style.color = "white"
+            item.style.background = "hsl(209, 23%, 22%)"
+        })
         Array.from(document.querySelectorAll("li")).forEach(function(item){
             item.style.color = "white"
         })
@@ -224,6 +228,10 @@ document.querySelector("#color-mode").addEventListener("click", function(){
         document.querySelector("#filter-btn").style.background = "white"
         document.querySelector("#filter-btn").style.color = "hsl(209, 23%, 22%)"
         document.querySelector("ul").style.background = "white"
+        Array.from(document.querySelectorAll("button")).forEach(function(item){
+            item.style.color = "hsl(209, 23%, 22%)"
+            item.style.background = "white"
+        })
         Array.from(document.querySelectorAll("li")).forEach(function(item){
             item.style.color = "hsl(209, 23%, 22%)"
         })
