@@ -74,6 +74,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 document.querySelector("ul").addEventListener("click", function(e){
     document.querySelector("main").innerHTML = ""
     if(e.target.classList.contains("region-btn")){
+        document.querySelector("#filter-text").textContent = e.target.textContent
         countries.getCountriesByRegion(e.target.textContent)
         .then((result) => {
             console.log(result.countryDetails);
