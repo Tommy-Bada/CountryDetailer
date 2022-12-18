@@ -27,7 +27,6 @@ searchBar.addEventListener("input", (e) =>{
         document.querySelector("main").innerHTML = ""
         countries.loadCountries("https://restcountries.com/v3.1/all")
         .then((result) => {
-            console.log(result.countryDetails);
             result.countryDetails.forEach(function(content){
                 let box = document.createElement("div") 
                 box.className = "box" 
@@ -51,7 +50,6 @@ searchBar.addEventListener("input", (e) =>{
 window.addEventListener('DOMContentLoaded', (event) => {
      countries.loadCountries("https://restcountries.com/v3.1/all")
     .then((result) => {
-        console.log(result.countryDetails);
         result.countryDetails.forEach(function(content){
             let box = document.createElement("div") 
             box.className = "box" 
@@ -77,7 +75,6 @@ document.querySelector("ul").addEventListener("click", function(e){
         document.querySelector("#filter-text").textContent = e.target.textContent
         countries.getCountriesByRegion(e.target.textContent)
         .then((result) => {
-            console.log(result.countryDetails);
             result.countryDetails.forEach(function(content){
                 let box = document.createElement("div")
                 box.className = "box" 
@@ -99,10 +96,8 @@ document.querySelector("ul").addEventListener("click", function(e){
 // Display a page when a country detail is clicked
 document.querySelector("main").addEventListener("click", function(e){
     if(e.target.classList.contains("box")){
-        console.log(e.target.firstElementChild.nextElementSibling.firstElementChild.textContent)
         countries.getCountry(e.target.firstElementChild.nextElementSibling.firstElementChild.textContent)
         .then((result) => {
-            console.log(result.countryDetails);
             result.countryDetails.forEach(function(content){
                 let page = document.createElement("div") 
                 page.className = "page" 
@@ -116,7 +111,7 @@ document.querySelector("main").addEventListener("click", function(e){
                             <h2>${content.name.official}</h2>
                             <div class="page-details">
                                 <div>
-                                    <p><b>Native Name: </b>${content?.name?.nativeName[Object.keys(content?.name?.nativeName)]?.common}</p>
+                                    <p><b>Native Name: </b>${content?.name?.nativeName[Object.keys(content?.name?.nativeName)]?.common??"None"}</p>
                                     <p><b>Population: </b>${(content.population).toLocaleString()}</p>
                                     <p><b>Region: </b>${content.region}</p>
                                     <p><b>Sub Region: </b>${content.subregion}</p>
@@ -124,16 +119,15 @@ document.querySelector("main").addEventListener("click", function(e){
                                 </div>
                                 <div>
                                     <p><b>Top Level Domain: </b>${content.tld}</p>
-                                    <p><b>Currencies: </b>${content?.currencies[Object.keys(content?.currencies)]?.name}</p>
-                                    <p><b>Languages: </b>${Object.keys(content?.languages)[0]}</p>
+                                    <p><b>Currencies: </b>${content?.currencies[Object.keys(content?.currencies)]?.name??"None"}</p>
+                                    <p><b>Languages: </b>${Object.keys(content?.languages)[0]??"None"}</p>
                                 </div>
                             </div>
                             <p class="border" ><b>Border Countries:</b><div class="border-list">${content?.borders?.map((item)=>{
                                 return `<button class="border-country">${item}</button>`
-                            }) ??""}</div></p>
+                            }).join("") ??""}</div></p>
                         </div>
                     </div>`
-                console.log(page)
                 document.querySelector("main").innerHTML = ""
                 document.querySelector("section").style.display = "none"
                 document.querySelector("aside").style.display = "none"
@@ -149,7 +143,6 @@ document.querySelector("main").addEventListener("click", function(e){
     if(e.target.classList.contains("border-country")){
         countries.getCountry(e.target.textContent)
         .then((result) => {
-            console.log(result.countryDetails);
             result.countryDetails.forEach(function(content){
                 let page = document.createElement("div") 
                 page.className = "page" 
@@ -163,7 +156,7 @@ document.querySelector("main").addEventListener("click", function(e){
                             <h2>${content.name.official}</h2>
                             <div class="page-details">
                                 <div>
-                                    <p><b>Native Name: </b>${content?.name?.nativeName[Object.keys(content?.name?.nativeName)]?.common}</p>
+                                    <p><b>Native Name: </b>${content?.name?.nativeName[Object.keys(content?.name?.nativeName)]?.common??"None"}</p>
                                     <p><b>Population: </b>${(content.population).toLocaleString()}</p>
                                     <p><b>Region: </b>${content.region}</p>
                                     <p><b>Sub Region: </b>${content.subregion}</p>
@@ -171,7 +164,7 @@ document.querySelector("main").addEventListener("click", function(e){
                                 </div>
                                 <div>
                                     <p><b>Top Level Domain: </b>${content.tld}</p>
-                                    <p><b>Currencies: </b>${content?.currencies[Object.keys(content?.currencies)]?.name}</p>
+                                    <p><b>Currencies: </b>${content?.currencies[Object.keys(content?.currencies)]?.name??"None"}</p>
                                     <p><b>Languages: </b>${Object.keys(content?.languages)[0]}</p>
                                 </div>
                             </div>
@@ -180,7 +173,6 @@ document.querySelector("main").addEventListener("click", function(e){
                             }) ??""}</div></p>
                         </div>
                     </div>`
-                console.log(page)
                 document.querySelector("main").innerHTML = ""
                 document.querySelector("section").style.display = "none"
                 document.querySelector("aside").style.display = "none"
@@ -271,7 +263,6 @@ document.querySelector("main").addEventListener("click", function(e){
     document.querySelector("aside").style.display = "flex"
     countries.loadCountries("https://restcountries.com/v3.1/all")
     .then((result) => {
-        console.log(result.countryDetails);
         result.countryDetails.forEach(function(content){
             let box = document.createElement("div") 
             box.className = "box" 
