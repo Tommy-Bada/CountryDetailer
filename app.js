@@ -253,7 +253,11 @@ document.querySelector("#filter-btn").addEventListener("click",function(){
 document.querySelector("main").addEventListener("click", function(e){
     if(e.target.classList.contains("back-btn")){
     document.querySelector("main").innerHTML = ""
-    document.querySelector("section").style.display = "flex"
+    if (window.screen.width <= 1280){
+        document.querySelector("section").style.display = "block"
+    }else{
+        document.querySelector("section").style.display = "flex"
+    }
     document.querySelector("aside").style.display = "flex"
     countries.loadCountries("https://restcountries.com/v3.1/all")
     .then((result) => {
