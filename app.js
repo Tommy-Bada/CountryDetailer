@@ -267,6 +267,7 @@ document.querySelector("main").addEventListener("click", function(e){
     }else{
         document.querySelector("section").style.display = "flex"
     }
+    document.querySelector("#filter-text").textContent = "Filter by region"
     document.querySelector("aside").style.display = "flex"
     countries.loadCountries("https://restcountries.com/v3.1/all")
     .then((result) => {
