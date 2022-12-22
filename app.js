@@ -170,7 +170,7 @@ document.querySelector("main").addEventListener("click", function(e){
                             </div>
                             <p class="border" ><b>Border Countries: </b><div class="border-list">${content?.borders?.map((item)=>{
                                 return `<button class="border-country">${item}</button>`
-                            }) ??""}</div></p>
+                            }).join("") ??""}</div></p>
                         </div>
                     </div>`
                 document.querySelector("main").innerHTML = ""
